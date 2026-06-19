@@ -125,7 +125,7 @@ h3 { font-size: 1.35rem; }
 
 .logo-tagline {
   font-size: clamp(0.95rem, 2vw, 1.1rem);
-  color: var(--color-accent-warm);
+  color: var(--color-accent);
   font-style: italic;
   font-weight: 500;
   margin-top: 0.15rem;
