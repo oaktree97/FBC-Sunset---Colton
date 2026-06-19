@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <rect width="200" height="200" rx="12" fill="#1f1a16"/>
+  <rect x="8" y="8" width="184" height="184" rx="8" fill="none" stroke="#433d36" stroke-width="2"/>
+  <text x="100" y="88" text-anchor="middle" font-family="Georgia, serif" font-size="36" font-weight="700" fill="#c4a35a">FBC</text>
+  <text x="100" y="130" text-anchor="middle" font-family="Georgia, serif" font-size="22" fill="#f5f0e8">Sunset</text>
+</svg>

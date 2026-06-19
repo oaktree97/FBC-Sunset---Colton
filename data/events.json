@@ -1,0 +1,18 @@
+{
+  "events": [
+    {
+      "title": "Sunday Worship Service",
+      "date": "2026-06-22",
+      "time": "10:30 AM",
+      "location": "FBC Sunset Sanctuary",
+      "description": "Join us for Bible study at 9:45 AM followed by worship at 10:30 AM. All are welcome!"
+    },
+    {
+      "title": "Sunset Students Night",
+      "date": "2026-06-25",
+      "time": "6:30 PM",
+      "location": "FBC Sunset",
+      "description": "Students gather for fellowship, games, and a time in God's Word. Middle and high school welcome."
+    }
+  ]
+}

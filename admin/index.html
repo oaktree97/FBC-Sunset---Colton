@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — FBC Sunset</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/admin/css/admin.css">
+</head>
+<body>
+  <div id="login-screen" class="login-screen">
+    <div class="login-card">
+      <h1>FBC Sunset Admin</h1>
+      <p class="subtitle">Sign in to manage church content</p>
+      <div id="login-error" class="alert alert-error hidden"></div>
+      <form id="login-form">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required autocomplete="username">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required autocomplete="current-password">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="app" class="admin-layout hidden">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <h2>FBC Sunset</h2>
+        <p>Content Manager</p>
+      </div>
+      <nav class="sidebar-nav" id="sidebar-nav">
+        <button class="nav-item active" data-view="dashboard">Dashboard</button>
+        <button class="nav-item" data-view="homepage">Homepage</button>
+        <button class="nav-item" data-view="events">Events</button>
+        <button class="nav-item" data-view="announcements">Announcements</button>
+        <button class="nav-item" data-view="sermons">Sermons</button>
+        <button class="nav-item" data-view="staff">Staff</button>
+        <button class="nav-item" data-view="service-times">Service Times</button>
+        <button class="nav-item" data-view="photos">Photos</button>
+        <button class="nav-item admin-only hidden" data-view="users">Users</button>
+      </nav>
+      <div class="sidebar-footer">
+        <p class="user-name" id="user-name"></p>
+        <span class="role-badge" id="user-role"></span>
+        <button class="btn btn-secondary btn-sm btn-block" id="logout-btn" style="margin-top: 0.75rem;">Sign Out</button>
+      </div>
+    </aside>
+    <main class="main-content" id="main-content"></main>
+  </div>
+
+  <script src="/admin/js/admin.js"></script>
+</body>
+</html>

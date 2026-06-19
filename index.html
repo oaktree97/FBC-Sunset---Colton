@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="First Baptist Church Sunset, TX — Your place for discipleship. Join us for worship, community, and family ministries.">
+  <title>First Baptist Church Sunset, TX — FBC Sunset</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Nunito+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo-link">
+        <span class="logo-title">FBC Sunset</span>
+        <span class="logo-tagline">Your place for discipleship</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="sermons.html">Sermons</a></li>
+          <li><a href="family-ministries.html">Family Ministries</a></li>
+          <li><a href="events.html">Upcoming Events</a></li>
+          <li><a href="giving.html">Giving</a></li>
+          <li><a href="staff.html">Meet Our Staff</a></li>
+          <li><a href="blog/index.html">Blog</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1 data-hero-title>Welcome to the Family</h1>
+        <p class="hero-subtitle" data-hero-subtitle>First Baptist Church — Sunset, Texas</p>
+        <div class="hero-actions">
+          <a href="#visit" class="btn btn-primary">Plan a Visit</a>
+          <a href="sermons.html" class="btn btn-outline">Watch Sermons</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="visit">
+      <div class="container">
+        <div class="section-header">
+          <h2>Join Us This Sunday</h2>
+          <p>We'd love to worship with you. Come as you are — you're always welcome here.</p>
+        </div>
+        <div class="info-grid" data-service-times>
+          <div class="info-block">
+            <div class="icon">📖</div>
+            <h3>Bible Study</h3>
+            <p>Sundays at 9:45 AM</p>
+          </div>
+          <div class="info-block">
+            <div class="icon">🎵</div>
+            <h3>Worship Service</h3>
+            <p>Sundays at 10:30 AM</p>
+          </div>
+          <div class="info-block">
+            <div class="icon">📍</div>
+            <h3>Our Location</h3>
+            <p data-site-address>407 TX-511 Spur<br>Sunset, TX 76270</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container two-col find-us">
+        <div class="find-us-text">
+          <h2 data-find-us-title>Find Us in Sunset</h2>
+          <p style="margin: 1rem 0;" data-find-us-text>We're a small-town church with a heart for our neighbors. Whether you're new to the area or looking for a church home, we invite you to come see what God is doing in our community.</p>
+          <p style="margin-bottom: 1rem;"><strong>Phone:</strong> <a data-contact-phone href="tel:9406008164">940-600-8164</a><br>
+          <strong>Email:</strong> <a data-contact-email href="mailto:thefbcsunsettx@gmail.com">thefbcsunsettx@gmail.com</a></p>
+        </div>
+        <div class="find-us-media">
+          <figure class="location-photo">
+            <img data-church-photo src="images/church-building.png" alt="First Baptist Church Sunset building with white steeple and cross on the front facade" width="800" height="450" loading="lazy">
+            <figcaption data-site-address>407 TX-511 Spur, Sunset, TX</figcaption>
+          </figure>
+          <div class="map-container">
+            <iframe
+              src="https://maps.google.com/maps?q=407+TX-511+Spur,+Sunset,+TX+76270&output=embed"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="FBC Sunset location map">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 data-ministries-title>Family Ministries</h2>
+          <p data-ministries-intro>From our youngest to our teenagers, we're committed to pointing every generation to Jesus.</p>
+        </div>
+        <div class="card-grid ministries-cards">
+          <article class="card" data-kids-card>
+            <h3>Sunset Kids</h3>
+            <p>Our kids deserve to be taught the truth of the gospel in new, fun, and exciting ways. We walk alongside families as they point each other to Jesus.</p>
+            <a class="card-link" href="family-ministries.html#kids">Learn more →</a>
+          </article>
+          <article class="card" data-students-card>
+            <h3>Sunset Students</h3>
+            <p>We believe in the generation rising. A safe place for students to come, connect, and be fully known and fully loved as they discover who they are in Christ.</p>
+            <a class="card-link" href="family-ministries.html#students">Learn more →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <h2>What's Happening</h2>
+        </div>
+        <div class="two-col">
+          <div>
+            <h3 style="margin-bottom: 1rem;">Next Event</h3>
+            <div id="event-preview"></div>
+            <a class="btn btn-secondary" href="events.html" style="margin-top: 1rem;">View All Events</a>
+          </div>
+          <div>
+            <h3 style="margin-bottom: 1rem;">Latest from the Blog</h3>
+            <div id="blog-preview"></div>
+            <a class="btn btn-secondary" href="blog/index.html" style="margin-top: 1rem;">Read the Blog</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>First Baptist Church Sunset</h4>
+          <p>Your place for discipleship in the heart of Sunset, Texas.</p>
+        </div>
+        <div>
+          <h4>Service Times</h4>
+          <p data-footer-service-times>Sunday Bible Study: 9:45 AM<br>Sunday Worship: 10:30 AM</p>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <p>
+            <span data-site-address>407 TX-511 Spur<br>Sunset, TX 76270</span><br>
+            <a data-site-phone href="tel:9406008164">940-600-8164</a><br>
+            <a data-site-email href="mailto:thefbcsunsettx@gmail.com">thefbcsunsettx@gmail.com</a>
+          </p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="sermons.html">Sermons</a></li>
+            <li><a href="giving.html">Giving</a></li>
+            <li><a href="staff.html">Meet Our Staff</a></li>
+            <li><a href="blog/index.html">Blog</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 First Baptist Church Sunset. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/content.js"></script>
+</body>
+</html>
