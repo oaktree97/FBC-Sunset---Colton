@@ -26,19 +26,19 @@ Staff sign in at `/admin` to manage all website content without editing code.
 
 | Role | Permissions |
 |------|-------------|
-| **Admin** | Full access — all content, user management, photo deletion |
+| **Admin** | Full access: all content, user management, photo deletion |
 | **Editor** | Create and edit events, announcements, sermons, staff, homepage, service times, and upload photos |
 
 ### What You Can Manage
 
-- **Homepage** — Hero text, Find Us section, ministry cards, contact info, giving URL
-- **Events** — Create, edit, and delete upcoming events
-- **Announcements** — Publish blog posts and church news (Markdown supported)
-- **Sermons** — Add YouTube videos and sermon notes
-- **Staff** — Update team members, bios, and featured pastor
-- **Service Times** — Edit the worship schedule
-- **Photos** — Upload and organize images for use across the site
-- **Users** *(Admin only)* — Invite other staff as Admin or Editor
+- **Homepage**: Hero text, Find Us section, ministry cards, contact info, giving URL
+- **Events**: Create, edit, and delete upcoming events
+- **Announcements**: Publish blog posts and church news (Markdown supported)
+- **Sermons**: Add YouTube videos and sermon notes
+- **Staff**: Update team members, bios, and featured pastor
+- **Service Times**: Edit the worship schedule
+- **Photos**: Upload and organize images for use across the site
+- **Users** *(Admin only)*: Invite other staff as Admin or Editor
 
 ## How It Works
 

@@ -270,7 +270,7 @@ async function renderBlogPost() {
   }
   try {
     const { announcement: post } = await fetchPublic(`/announcements/slug/${encodeURIComponent(slug)}`);
-    document.title = `${post.title} — FBC Sunset Blog`;
+    document.title = `${post.title} | FBC Sunset Blog`;
     container.innerHTML = `
       <header class="post-header">
         <h1>${esc(post.title)}</h1>

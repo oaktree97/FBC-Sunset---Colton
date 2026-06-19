@@ -32,7 +32,7 @@ if (!db.prepare('SELECT id FROM homepage WHERE id = 1').get()) {
      VALUES (1, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, datetime('now'))`
   ).run(
     'Welcome to the Family',
-    'First Baptist Church — Sunset, Texas',
+    'First Baptist Church, Sunset, Texas',
     'Your place for discipleship',
     'Find Us in Sunset',
     "We're a small-town church with a heart for our neighbors. Whether you're new to the area or looking for a church home, we invite you to come see what God is doing in our community.",
