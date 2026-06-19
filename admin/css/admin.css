@@ -1,17 +1,18 @@
 /* Admin portal styles */
 :root {
-  --admin-bg: #141210;
-  --admin-sidebar: #1c1916;
-  --admin-surface: #2a2622;
-  --admin-surface-hover: #353028;
-  --admin-border: #433d36;
-  --admin-text: #e8e2d9;
-  --admin-muted: #a89f94;
-  --admin-heading: #f5f0e8;
-  --admin-accent: #c4a35a;
-  --admin-accent-hover: #d4b872;
+  --admin-bg: #f6f4f1;
+  --admin-sidebar: #e8e4de;
+  --admin-surface: #fdfcfa;
+  --admin-surface-hover: #f0ece6;
+  --admin-border: #c8c2b8;
+  --admin-text: #4a4540;
+  --admin-muted: #6d6760;
+  --admin-heading: #2f2b27;
+  --admin-accent: #1a8f7a;
+  --admin-accent-hover: #147a68;
+  --admin-accent-warm: #d4882a;
   --admin-danger: #c45c5c;
-  --admin-success: #6b9e6b;
+  --admin-success: #3d8f5c;
   --admin-radius: 8px;
   --sidebar-width: 240px;
   --font: 'Nunito Sans', system-ui, sans-serif;
@@ -45,7 +46,7 @@ body {
   padding: 2.5rem;
   width: 100%;
   max-width: 400px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  box-shadow: 0 8px 24px rgba(74, 70, 65, 0.12);
 }
 
 .login-card h1 {
@@ -138,7 +139,7 @@ body {
 
 .btn-primary {
   background: var(--admin-accent);
-  color: var(--admin-bg);
+  color: #fff;
 }
 
 .btn-primary:hover:not(:disabled) { background: var(--admin-accent-hover); }
@@ -171,15 +172,15 @@ body {
 }
 
 .alert-error {
-  background: rgba(196,92,92,0.15);
+  background: rgba(196, 92, 92, 0.1);
   border: 1px solid var(--admin-danger);
-  color: #e8a0a0;
+  color: #a04040;
 }
 
 .alert-success {
-  background: rgba(107,158,107,0.15);
+  background: rgba(61, 143, 92, 0.1);
   border: 1px solid var(--admin-success);
-  color: #a8d4a8;
+  color: #2d6b44;
 }
 
 /* Layout */
@@ -443,7 +444,7 @@ body {
 .stat-card .number {
   font-size: 2rem;
   font-weight: 700;
-  color: var(--admin-accent);
+  color: var(--admin-accent-warm);
 }
 
 .stat-card .label {

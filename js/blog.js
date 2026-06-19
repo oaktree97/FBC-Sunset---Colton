@@ -108,7 +108,7 @@ async function renderBlogPost() {
       return;
     }
 
-    document.title = `${post.title} — FBC Sunset Blog`;
+    document.title = `${post.title} | FBC Sunset Blog`;
 
     container.innerHTML = `
       <header class="post-header">

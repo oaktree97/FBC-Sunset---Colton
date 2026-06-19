@@ -157,7 +157,7 @@ async function renderHomepage() {
         <div class="form-group"><label>Section Title</label><input name="find_us_title" value="${esc(homepage.find_us_title)}"></div>
         <div class="form-group"><label>Description</label><textarea name="find_us_text">${esc(homepage.find_us_text)}</textarea></div>
         <div class="form-group"><label>Featured Building Photo</label>
-          <select name="featured_photo_id"><option value="">— None —</option>${photoOptions}</select>
+          <select name="featured_photo_id"><option value="">None</option>${photoOptions}</select>
           <p class="form-hint">Upload photos in the Photos section first.</p>
         </div>
       </div>
@@ -501,7 +501,7 @@ async function renderStaff() {
         <div class="form-group"><label>Name</label><input name="name" required></div>
         <div class="form-group"><label>Role / Title</label><input name="role"></div>
         <div class="form-group"><label>Bio</label><textarea name="bio" rows="4"></textarea></div>
-        <div class="form-group"><label>Photo</label><select name="photo_id"><option value="">— None —</option>${photoOpts}</select></div>
+        <div class="form-group"><label>Photo</label><select name="photo_id"><option value="">None</option>${photoOpts}</select></div>
         <div class="form-row">
           <label class="checkbox-label"><input type="checkbox" name="is_featured" value="1"> Featured pastor bio</label>
           <label class="checkbox-label"><input type="checkbox" name="is_elder" value="1"> Elder</label>
@@ -627,7 +627,7 @@ async function renderPhotos() {
       <label class="upload-zone" id="upload-zone">
         <input type="file" id="photo-file" accept="image/*">
         <p><strong>Click to upload</strong> or drag a photo here</p>
-        <p class="form-hint">JPG, PNG, GIF, WebP — max 10 MB</p>
+        <p class="form-hint">JPG, PNG, GIF, WebP (max 10 MB)</p>
       </label>
       <div class="form-row">
         <div class="form-group"><label>Alt Text</label><input id="photo-alt" placeholder="Describe the image"></div>
