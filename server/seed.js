@@ -6,7 +6,7 @@ const db = require('./db');
 
 const userCount = db.prepare('SELECT COUNT(*) AS c FROM users').get().c;
 if (userCount === 0) {
-  const email = process.env.ADMIN_EMAIL || 'admin@fbcsunset.org';
+  const email = (process.env.ADMIN_EMAIL || 'admin@fbcsunset.org').toLowerCase();
   const password = process.env.ADMIN_PASSWORD || 'ChangeMe123!';
   const name = process.env.ADMIN_NAME || 'Church Admin';
   const hash = bcrypt.hashSync(password, 10);
@@ -26,14 +26,20 @@ if (db.prepare('SELECT COUNT(*) AS c FROM service_times').get().c === 0) {
 
 if (!db.prepare('SELECT id FROM homepage WHERE id = 1').get()) {
   db.prepare(
-    `INSERT INTO homepage (id, hero_title, hero_subtitle, tagline, find_us_title, find_us_text,
+    `INSERT INTO homepage (id, hero_title, hero_subtitle, tagline, hero_cta_primary_text,
+     hero_cta_primary_url, hero_cta_secondary_text, hero_cta_secondary_url,
+     find_us_title, find_us_text,
      ministries_title, ministries_intro, kids_title, kids_text, students_title, students_text,
      address, phone, email, giving_url, updated_at)
-     VALUES (1, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, datetime('now'))`
+     VALUES (1, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, datetime('now'))`
   ).run(
     'Welcome to the Family',
     'First Baptist Church, Sunset, Texas',
     'Your place for discipleship',
+    'Plan a Visit',
+    '#visit',
+    'Watch Sermons',
+    'sermons.html',
     'Find Us in Sunset',
     "We're a small-town church with a heart for our neighbors. Whether you're new to the area or looking for a church home, we invite you to come see what God is doing in our community.",
     'Family Ministries',

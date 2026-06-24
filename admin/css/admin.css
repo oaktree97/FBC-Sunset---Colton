@@ -110,6 +110,18 @@ body {
   margin-top: 0.35rem;
 }
 
+.hero-preview {
+  margin-top: 0.75rem;
+}
+
+.hero-preview-image {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  border-radius: 8px;
+  border: 1px solid var(--admin-border);
+}
+
 .checkbox-label {
   display: flex;
   align-items: center;
@@ -412,6 +424,8 @@ body {
 }
 
 .upload-zone {
+  display: block;
+  width: 100%;
   border: 2px dashed var(--admin-border);
   border-radius: var(--admin-radius);
   padding: 2rem;

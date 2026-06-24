@@ -137,19 +137,39 @@ async function renderDashboard() {
 async function renderHomepage() {
   const main = document.getElementById('main-content');
   main.innerHTML = '<p class="empty-state">Loading...</p>';
-  const { homepage, featured_photo } = await api('/homepage');
+  const { homepage, featured_photo, hero_photo } = await api('/homepage');
   const { photos } = await api('/photos');
   const photoOptions = photos.map((p) =>
     `<option value="${p.id}" ${homepage.featured_photo_id == p.id ? 'selected' : ''}>${esc(p.original_name || p.filename)}</option>`
   ).join('');
+  const heroPhotoOptions = photos.map((p) =>
+    `<option value="${p.id}" ${homepage.hero_photo_id == p.id ? 'selected' : ''}>${esc(p.original_name || p.filename)}</option>`
+  ).join('');
+  const heroPreview = hero_photo
+    ? `<img src="/uploads/${esc(hero_photo.filename)}" alt="" class="hero-preview-image">`
+    : '<p class="form-hint">No background image selected. The default gradient will be used.</p>';
 
   main.innerHTML = `
     <div class="page-header"><h1>Homepage</h1><p>Update welcome message, contact info, and ministry cards.</p></div>
     <form id="homepage-form">
       <div class="panel">
         <h3>Hero Section</h3>
+        <p class="form-hint" style="margin-bottom:1rem;">The large banner at the top of the homepage.</p>
         <div class="form-group"><label>Main Title</label><input name="hero_title" value="${esc(homepage.hero_title)}"></div>
         <div class="form-group"><label>Subtitle</label><input name="hero_subtitle" value="${esc(homepage.hero_subtitle)}"></div>
+        <div class="form-group"><label>Background Image</label>
+          <select name="hero_photo_id"><option value="">Default gradient</option>${heroPhotoOptions}</select>
+          <p class="form-hint">Upload photos in the Photos section first.</p>
+          <div class="hero-preview">${heroPreview}</div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Primary Button Text</label><input name="hero_cta_primary_text" value="${esc(homepage.hero_cta_primary_text || 'Plan a Visit')}"></div>
+          <div class="form-group"><label>Primary Button Link</label><input name="hero_cta_primary_url" value="${esc(homepage.hero_cta_primary_url || '#visit')}" placeholder="#visit or https://"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Secondary Button Text</label><input name="hero_cta_secondary_text" value="${esc(homepage.hero_cta_secondary_text || 'Watch Sermons')}"></div>
+          <div class="form-group"><label>Secondary Button Link</label><input name="hero_cta_secondary_url" value="${esc(homepage.hero_cta_secondary_url || 'sermons.html')}" placeholder="sermons.html or https://"></div>
+        </div>
         <div class="form-group"><label>Site Tagline (header)</label><input name="tagline" value="${esc(homepage.tagline)}"></div>
       </div>
       <div class="panel">
@@ -221,6 +241,7 @@ async function renderHomepage() {
     const fd = new FormData(e.target);
     const body = Object.fromEntries(fd);
     body.featured_photo_id = body.featured_photo_id || null;
+    body.hero_photo_id = body.hero_photo_id || null;
     try {
       await api('/homepage', { method: 'PUT', body });
       toast('Homepage saved!');

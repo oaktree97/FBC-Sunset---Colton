@@ -110,4 +110,17 @@ db.exec(`
   );
 `);
 
+function ensureColumn(table, column, definition) {
+  const columns = db.prepare(`PRAGMA table_info(${table})`).all().map((c) => c.name);
+  if (!columns.includes(column)) {
+    db.exec(`ALTER TABLE ${table} ADD COLUMN ${column} ${definition}`);
+  }
+}
+
+ensureColumn('homepage', 'hero_photo_id', 'INTEGER REFERENCES photos(id) ON DELETE SET NULL');
+ensureColumn('homepage', 'hero_cta_primary_text', 'TEXT');
+ensureColumn('homepage', 'hero_cta_primary_url', 'TEXT');
+ensureColumn('homepage', 'hero_cta_secondary_text', 'TEXT');
+ensureColumn('homepage', 'hero_cta_secondary_url', 'TEXT');
+
 module.exports = db;

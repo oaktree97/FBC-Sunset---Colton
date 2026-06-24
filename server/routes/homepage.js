@@ -9,25 +9,35 @@ router.get('/', (_req, res) => {
   const featuredPhoto = homepage?.featured_photo_id
     ? db.prepare('SELECT * FROM photos WHERE id = ?').get(homepage.featured_photo_id)
     : null;
-  res.json({ homepage: homepage || {}, featured_photo: featuredPhoto });
+  const heroPhoto = homepage?.hero_photo_id
+    ? db.prepare('SELECT * FROM photos WHERE id = ?').get(homepage.hero_photo_id)
+    : null;
+  res.json({ homepage: homepage || {}, featured_photo: featuredPhoto, hero_photo: heroPhoto });
 });
 
 router.put('/', requireAuth, (req, res) => {
   const existing = db.prepare('SELECT * FROM homepage WHERE id = 1').get();
   const fields = [
-    'hero_title', 'hero_subtitle', 'tagline', 'find_us_title', 'find_us_text',
+    'hero_title', 'hero_subtitle', 'tagline', 'hero_photo_id',
+    'hero_cta_primary_text', 'hero_cta_primary_url',
+    'hero_cta_secondary_text', 'hero_cta_secondary_url',
+    'find_us_title', 'find_us_text',
     'ministries_title', 'ministries_intro', 'kids_title', 'kids_text',
     'students_title', 'students_text', 'address', 'phone', 'email',
     'giving_url', 'featured_photo_id',
   ];
 
-  const values = fields.map((f) =>
-    req.body[f] !== undefined ? req.body[f] : existing?.[f] ?? ''
-  );
+  const values = fields.map((f) => {
+    let value = req.body[f] !== undefined ? req.body[f] : existing?.[f] ?? '';
+    if (f.endsWith('_photo_id') && (value === '' || value === undefined)) value = null;
+    return value;
+  });
 
   if (existing) {
     db.prepare(
-      `UPDATE homepage SET hero_title = ?, hero_subtitle = ?, tagline = ?,
+      `UPDATE homepage SET hero_title = ?, hero_subtitle = ?, tagline = ?, hero_photo_id = ?,
+       hero_cta_primary_text = ?, hero_cta_primary_url = ?,
+       hero_cta_secondary_text = ?, hero_cta_secondary_url = ?,
        find_us_title = ?, find_us_text = ?, ministries_title = ?, ministries_intro = ?,
        kids_title = ?, kids_text = ?, students_title = ?, students_text = ?,
        address = ?, phone = ?, email = ?, giving_url = ?, featured_photo_id = ?,
@@ -35,11 +45,12 @@ router.put('/', requireAuth, (req, res) => {
     ).run(...values);
   } else {
     db.prepare(
-      `INSERT INTO homepage (id, hero_title, hero_subtitle, tagline, find_us_title,
-       find_us_text, ministries_title, ministries_intro, kids_title, kids_text,
+      `INSERT INTO homepage (id, hero_title, hero_subtitle, tagline, hero_photo_id,
+       hero_cta_primary_text, hero_cta_primary_url, hero_cta_secondary_text, hero_cta_secondary_url,
+       find_us_title, find_us_text, ministries_title, ministries_intro, kids_title, kids_text,
        students_title, students_text, address, phone, email, giving_url,
        featured_photo_id, updated_at)
-       VALUES (1, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, datetime('now'))`
+       VALUES (1, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, datetime('now'))`
     ).run(...values);
   }
 

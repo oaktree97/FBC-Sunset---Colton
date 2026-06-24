@@ -17,10 +17,11 @@ router.post('/login', (req, res) => {
   }
 
   const token = signToken(user);
+  const secure = req.secure || process.env.NODE_ENV === 'production';
   res.cookie('token', token, {
     httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
-    sameSite: 'strict',
+    secure,
+    sameSite: 'lax',
     maxAge: 8 * 60 * 60 * 1000,
   });
   res.json({
@@ -28,8 +29,12 @@ router.post('/login', (req, res) => {
   });
 });
 
-router.post('/logout', (_req, res) => {
-  res.clearCookie('token');
+router.post('/logout', (req, res) => {
+  res.clearCookie('token', {
+    httpOnly: true,
+    secure: req.secure || process.env.NODE_ENV === 'production',
+    sameSite: 'lax',
+  });
   res.json({ ok: true });
 });
 
