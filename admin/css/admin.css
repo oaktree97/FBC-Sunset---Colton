@@ -424,6 +424,8 @@ body {
 }
 
 .upload-zone {
+  display: block;
+  width: 100%;
   border: 2px dashed var(--admin-border);
   border-radius: var(--admin-radius);
   padding: 2rem;
