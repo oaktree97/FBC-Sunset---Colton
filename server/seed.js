@@ -6,7 +6,7 @@ const db = require('./db');
 
 const userCount = db.prepare('SELECT COUNT(*) AS c FROM users').get().c;
 if (userCount === 0) {
-  const email = process.env.ADMIN_EMAIL || 'admin@fbcsunset.org';
+  const email = (process.env.ADMIN_EMAIL || 'admin@fbcsunset.org').toLowerCase();
   const password = process.env.ADMIN_PASSWORD || 'ChangeMe123!';
   const name = process.env.ADMIN_NAME || 'Church Admin';
   const hash = bcrypt.hashSync(password, 10);
