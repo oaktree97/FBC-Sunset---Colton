@@ -25,7 +25,7 @@ async function renderHomepage() {
   if (!heroTitle) return;
 
   try {
-    const [{ homepage, featured_photo }, { service_times }, { events }, { announcements }] = await Promise.all([
+    const [{ homepage, featured_photo, hero_photo }, { service_times }, { events }, { announcements }] = await Promise.all([
       fetchPublic('/homepage'),
       fetchPublic('/service-times'),
       fetchPublic('/events'),
@@ -34,6 +34,28 @@ async function renderHomepage() {
 
     document.querySelector('[data-hero-title]').textContent = homepage.hero_title || 'Welcome to the Family';
     document.querySelector('[data-hero-subtitle]').textContent = homepage.hero_subtitle || '';
+
+    const hero = document.querySelector('[data-hero]');
+    if (hero) {
+      if (hero_photo?.filename) {
+        hero.classList.add('has-photo');
+        hero.style.backgroundImage = `url(${photoUrl(hero_photo.filename)})`;
+      } else {
+        hero.classList.remove('has-photo');
+        hero.style.backgroundImage = '';
+      }
+    }
+
+    const primaryCta = document.querySelector('[data-hero-cta-primary]');
+    if (primaryCta) {
+      primaryCta.textContent = homepage.hero_cta_primary_text || 'Plan a Visit';
+      primaryCta.href = homepage.hero_cta_primary_url || '#visit';
+    }
+    const secondaryCta = document.querySelector('[data-hero-cta-secondary]');
+    if (secondaryCta) {
+      secondaryCta.textContent = homepage.hero_cta_secondary_text || 'Watch Sermons';
+      secondaryCta.href = homepage.hero_cta_secondary_url || 'sermons.html';
+    }
     document.querySelector('[data-find-us-title]').textContent = homepage.find_us_title || 'Find Us in Sunset';
     document.querySelector('[data-find-us-text]').textContent = homepage.find_us_text || '';
     document.querySelector('[data-ministries-title]').textContent = homepage.ministries_title || 'Family Ministries';
